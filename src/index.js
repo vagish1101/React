@@ -13,7 +13,6 @@ Apptest2();
 ReactDOM.render(
     <div>
         <App />
-        <div>dasdad</div>
     </div>
     ,
   document.getElementById('myapp')
