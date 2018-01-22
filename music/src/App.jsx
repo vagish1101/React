@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+import { FormControl, FormGroup, InputGroup, Glyphicon } from 'react-bootstrap';
+
+class App extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            query: ''
+        }
+    }
+    search() {
+        // 'The Beatles'
+        const BASE_URL = 'https://api.spotify.com/v1/search?';
+        const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
+        console.log(FETCH_URL);
+    }
+    render () {
+        return(
+            <div>
+                <div> Music Worls </div>
+                <FormGroup>
+                    <InputGroup>  
+                        <FormControl
+                            type="text"
+                            placeholder="Search for the Artist"
+                            value= {this.state.query}
+                            onChange = { event => this.setState({ query: event.target.value })}
+                            onKeyPress = { event => {
+                                (event.key === 'Enter') ? this.search() : ''
+                            } }
+                        />
+                        <InputGroup.Addon onClick = {() => {this.search()} }>
+                            <Glyphicon glyph="search" ></Glyphicon>
+                        </InputGroup.Addon>
+                    </InputGroup>
+                </FormGroup>                
+            </div>
+        )
+    }
+}
+export default App
