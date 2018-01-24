@@ -2,7 +2,7 @@ import ADD_REMAINDER from '../contants';
 
 function remainder(a) {
     return {
-        type: a.type,
+        text: a.text,
         id: Math.random(),
         test: 'Vagish'
     }
@@ -10,12 +10,12 @@ function remainder(a) {
 
 const remainders = ( state = [] , action ) => {
 
-    let remainders = null;
+    let reminders = null;
     switch (action.type) {
         case 'ADD_REMAINDER':
             debugger
-            remainders = [...state , remainder(action)]
-            return remainders
+            reminders = [...state , remainder(action)]
+            return reminders
         case 'REMOVE_REMAINDER':
             console.log('removed')
         default:

@@ -1,11 +1,11 @@
 import ADD_REMAINDER from '../contants';
 
-export function remainder(text) {
+export function addremainder(text) {
     let add_remainder = {
         type: 'ADD_REMAINDER',
         text
     }
-    console.log('Action', add_remainder);
+    debugger;
     return add_remainder
 }
 export function removeReminder(text) {

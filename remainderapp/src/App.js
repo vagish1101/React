@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {remainder} from './actions'
+import { addremainder } from './actions'
 import logo from './logo.svg';
 import './App.css';
 
@@ -12,12 +12,23 @@ class App extends Component {
       text: ''
     }
   }
+  renderList() {
+   
+    return(
+      <ul>
+        <li>dasd</li>
+      </ul>
+    )
+  }
   submitReminder() {
-    console.log(this.props.remainder(this.state.text))
+    this.props.addremainder(this.state.text);
+    const { reminders } = this.props;
+    debugger;
+    console.log(reminders);
+    console.log(this.props);
   }
   removeReminder() {
-    debugger
-    console.log(this.props.remainder(this.state.text))
+   // console.log(this.props.remainder(this.state.text))
   }
   render() {
     return (
@@ -39,17 +50,18 @@ class App extends Component {
             onClick ={()=> this.removeReminder()} >
             Remove Remainder
           </button>
+          {this.renderList()}
         </div>
       </div>
     );
   }
 }
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({remainder}, dispatch);
+  return bindActionCreators({addremainder}, dispatch);
 }
 function mapStateToProps(state) {
   return {
-    remainders:state
+    reminders:state
   }
 }
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
