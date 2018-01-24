@@ -22,9 +22,9 @@ class App extends Component {
   }
   submitReminder() {
     this.props.addremainder(this.state.text);
-    const { reminders } = this.props;
+    //const { reminders } = this.props;
     debugger;
-    console.log(reminders);
+    //console.log(reminders);
     console.log(this.props);
   }
   removeReminder() {
@@ -64,4 +64,4 @@ function mapStateToProps(state) {
     reminders:state
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

@@ -3,13 +3,11 @@ import ADD_REMAINDER from '../contants';
 function remainder(a) {
     return {
         text: a.text,
-        id: Math.random(),
-        test: 'Vagish'
+        id: Math.random()
     }
 }
 
 const remainders = ( state = [] , action ) => {
-
     let reminders = null;
     switch (action.type) {
         case 'ADD_REMAINDER':
