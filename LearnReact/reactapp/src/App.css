@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  margin-top: 300px;
+}
+.red {
+  color: red
+}
+
+.bold {
+  font-weight: bolder;
+}
+.yellow {
+  background-color: yellow;
+}
