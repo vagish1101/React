@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import Person from './Person/Person'
+import { Component } from 'react';
+import  React from 'react';
+import Persons from './Persons/Persons'
 import './App.css';
+import Collapes from './collapse/collapse'
 
 class App extends Component {
   sopmething = 'Vagish';
@@ -19,8 +21,7 @@ class App extends Component {
         {name: switchname , empid: 1111},
         {name: 'Pyare', empid: 1233},
         {name: 'Kumar', empid: 999},
-      ],
-      showPerson: false
+      ]
     })
   }
 
@@ -95,39 +96,22 @@ class App extends Component {
     if (this.state.persons.length < 2) {
       classes.push('yellow');
     } 
-    
+
     return (
       <div className="App" className= {classes}>
         <h1>Hi I am a React App</h1>
         <button style = {buttonStyle} onClick = {this.toggleNameHandler }>Toogle Button</button>
-          { this.state.showPerson ?  <div>
-          <button onClick = { () =>  this.switchNameHandler('Jitu') }>Switch Name</button>
-          {this.state.persons.map((person, index)=> {
-            return  <Person 
-                      name = {person.name}
-                      empid = {person.name.empid}
-                      changeName = {this.changeNameHandler}
-                      dynamic_click = {this.deleteHandler.bind(this, index)}
-                       changeNameDynamic = {this.changeNameDynamicHandler.bind(this,  person.empid)}
-                    //  changeNameDynamic = { event=>  {this.changeNameDynamicHandler(event, person.empid) } }
-                    />
-          })}
-          {/* <Person 
-            name = {this.state.persons[0].name}  
-            empid = {this.state.persons[0].empid}
-            click = {this.switchNameHandler.bind(this, 'Jitendra')} >Working in Teksystems</Person>
-          <Person 
-            name = {this.state.persons[1].name}  
-            empid = {this.state.persons[1].empid}
-            changeName = {this.changeNameHandler}
-            />
-          <Person 
-            name = {this.state.persons[2].name}  
-            empid = {this.state.persons[2].empid} >Working in Teksystems
-          </Person> */}
-        </div> 
+        { this.state.showPerson ?
+        <Persons 
+          persons = {this.state.persons}
+          dynamic = {this.deleteHandler}
+          changed = {this.changeNameHandler}
+          changedDynamic = {this.changeNameDynamicHandler}
+          switchName = {this.switchNameHandler}
+        />
          : null
       } 
+      <Collapes />
       </div>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null , 'Hi I am a React App'));
